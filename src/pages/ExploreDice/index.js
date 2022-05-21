@@ -10,7 +10,7 @@ export default function ExploreDice() {
           <Stack width="70%" mx="auto" spacing={4}>
             <Typography
               fontFamily="'Source Sans Pro', sans-serif"
-              fontSize={{ xs: 24, md: 42 }}
+              fontSize={{ xs: 24, sm: 36, md: 42 }}
               color="white"
               textAlign={{ xs: 'center', md: 'left' }}
             >Hand Crafted Wooden Figure</Typography>
@@ -40,7 +40,7 @@ export default function ExploreDice() {
           <Stack width="70%" mx="auto" spacing={4} mt={{ xs: 8, md: 0 }}>
             <Typography
               fontFamily="'Source Sans Pro', sans-serif"
-              fontSize={{ xs: 24, md: 42 }}
+              fontSize={{ xs: 24, sm: 36, md: 42 }}
               color="white"
               textAlign={{ xs: 'center', md: 'left' }}
             >Bespoke 3d printed Figure</Typography>
