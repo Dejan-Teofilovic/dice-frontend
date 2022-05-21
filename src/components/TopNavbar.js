@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
-import { AppBar, Box, Container, Drawer, IconButton, List, ListItem, ListItemButton, Stack, styled, Toolbar, Typography } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  Stack,
+  styled,
+  Toolbar,
+  Typography
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { PrimaryButton, TextButton } from './styledComponents';
+import { ROUTES } from '../utils/constants';
 
 const CustomizedDrawer = styled(Drawer)`
   .MuiPaper-root {
@@ -16,19 +32,29 @@ export default function TopNavbar() {
     <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: 3 }}>
       <Container maxWidth="xl">
         <Toolbar>
-          <Typography
-            fontFamily="'IBM Plex Mono', monospace"
-            fontSize={28}
-            color="white"
-            display={{ xs: 'none', md: 'flex' }}
-          >DICE</Typography>
-          <Box component="img" src="/assets/images/logo.png" width={24} ml={1} />
+          <Button component={RouterLink} to="/">
+            <Typography
+              fontFamily="'IBM Plex Mono', monospace"
+              fontSize={28}
+              color="white"
+              display={{ xs: 'none', md: 'flex' }}
+            >DICE</Typography>
+            <Box component="img" src="/assets/images/logo.png" width={24} ml={1} />
+          </Button>
           <Box flexGrow={1} />
-
-          <TextButton sx={{ mr: 3, fontWeight: 600, display: { xs: 'none', md: 'flex' } }}>FAQ</TextButton>
-          <TextButton sx={{ mr: 4, fontWeight: 600, display: { xs: 'none', md: 'flex' } }}>Explore Dice</TextButton>
+          {
+            ROUTES.map(route => (
+              <TextButton
+                key={route.id}
+                sx={{ mr: 4, fontWeight: 600, display: { xs: 'none', md: 'flex' } }}
+                component={RouterLink}
+                to={route.path}
+              >{route.name}</TextButton>
+            ))
+          }
           <PrimaryButton variant="contained">Connect</PrimaryButton>
 
+          {/* For Mobile */}
           <IconButton
             size="large"
             sx={{ color: '#FFFFFF', ml: { xs: 2, md: 0 }, display: { xs: 'flex', md: 'none' } }}
@@ -37,6 +63,7 @@ export default function TopNavbar() {
             <MenuIcon />
           </IconButton>
 
+          {/* For Mobile */}
           <CustomizedDrawer
             anchor="right"
             open={drawerOpened}
@@ -44,11 +71,24 @@ export default function TopNavbar() {
           >
             <Box my={3}>
               <Stack direction="row" justifyContent="center" alignItems="center">
-                <Box component="img" src="/assets/images/logo.png" />
+                <Button component={RouterLink} to="/">
+                  <Box component="img" src="/assets/images/logo.png" />
+                </Button>
               </Stack>
-              <List sx={{ mt: 2 }}>
-                <ListItem><ListItemButton sx={{ color: '#9DB7BD', fontFamily: "'Source Sans Pro', sans-serif" }}>FAQ</ListItemButton></ListItem>
-                <ListItem><ListItemButton sx={{ color: '#9DB7BD', fontFamily: "'Source Sans Pro', sans-serif" }}>Explore Dice</ListItemButton></ListItem>
+              <List sx={{ mt: 2 }} onClick={() => setDrawerOpened(false)}>
+                {
+                  ROUTES.map(route => (
+                    <ListItem key={route.id}>
+                      <ListItemButton
+                        sx={{ color: '#9DB7BD', fontFamily: "'Source Sans Pro', sans-serif" }}
+                        component={RouterLink}
+                        to={route.path}
+                      >
+                        {route.name}
+                      </ListItemButton>
+                    </ListItem>
+                  ))
+                }
               </List>
             </Box>
           </CustomizedDrawer>
