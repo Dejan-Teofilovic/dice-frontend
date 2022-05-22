@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Container, styled, Typography } from '@mui/material';
-import { FAQ } from '../../utils/constants';
+import { FAQ, varFadeInUp } from '../../utils/constants';
+import MotionDiv from '../../components/MotionDiv';
 
 const CustomAccordion = styled(Accordion)`
   background-color: rgba(0, 0, 0, 0);
@@ -12,14 +13,6 @@ const CustomAccordion = styled(Accordion)`
   .MuiAccordion-root {
     margin: 0;
   }
-`;
-
-const CustomAccordionSummary = styled(AccordionSummary)`
-
-`;
-
-const CustomAccordionDetails = styled(AccordionDetails)`
-
 `;
 
 export default function Faq() {
@@ -34,18 +27,20 @@ export default function Faq() {
       <Box width={{ xs: '100%', md: '70%' }} mt={6}>
         {
           FAQ.map(faqItem => (
-            <CustomAccordion key={faqItem.id}>
-              <CustomAccordionSummary>
-                <Typography fontSize={20}>{faqItem.question}</Typography>
-              </CustomAccordionSummary>
-              <CustomAccordionDetails>
-                <Typography
-                  fontFamily="'IBM Plex Mono', monospace"
-                  fontSize={16}
-                  color="#9DB7BD"
-                >{faqItem.answer}</Typography>
-              </CustomAccordionDetails>
-            </CustomAccordion>
+            <MotionDiv key={faqItem.id} variants={varFadeInUp}>
+              <CustomAccordion>
+                <AccordionSummary>
+                  <Typography fontSize={20}>{faqItem.question}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography
+                    fontFamily="'IBM Plex Mono', monospace"
+                    fontSize={16}
+                    color="#9DB7BD"
+                  >{faqItem.answer}</Typography>
+                </AccordionDetails>
+              </CustomAccordion>
+            </MotionDiv>
           ))
         }
       </Box>
