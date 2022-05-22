@@ -16,8 +16,10 @@ import {
   Typography
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from 'react-router-dom';
 import { PrimaryButton, TextButton } from './styledComponents';
 import { ROUTES } from '../utils/constants';
+import useWallet from '../hooks/useWallet';
 
 const CustomizedDrawer = styled(Drawer)`
   .MuiPaper-root {
@@ -26,7 +28,16 @@ const CustomizedDrawer = styled(Drawer)`
 `;
 
 export default function TopNavbar() {
+  const navigate = useNavigate();
+
+  const { connectWallet, currentAccount, walletConnected, disconnectWallet } = useWallet();
+
   const [drawerOpened, setDrawerOpened] = useState(false);
+
+  const handleDisconnect = () => {
+    disconnectWallet();
+    navigate('/');
+  };
 
   return (
     <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: 3 }}>
@@ -52,7 +63,20 @@ export default function TopNavbar() {
               >{route.name}</TextButton>
             ))
           }
-          <PrimaryButton variant="contained">Connect</PrimaryButton>
+
+          {
+            walletConnected ? (
+              <PrimaryButton
+                variant="contained"
+                onClick={handleDisconnect}
+              >Disconnect</PrimaryButton>
+            ) : (
+              <PrimaryButton
+                variant="contained"
+                onClick={() => connectWallet()}
+              >Connect</PrimaryButton>
+            )
+          }
 
           {/* For Mobile */}
           <IconButton

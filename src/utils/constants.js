@@ -53,3 +53,17 @@ export const FAQ = [
     answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
   },
 ];
+
+// Chain infos
+export const CHAIN_ID = 80001;
+export const CHAIN_NAME = 'Mumbai Testnet';
+export const RPC_URLS = ['https://rpc-mumbai.maticvigil.com'];
+export const BLOCK_EXPLORER_URLS = ['https://polygonscan.com/'];
+export const NATIVE_CURRENCY_NAME = 'MATIC';
+export const NATIVE_CURRENCY_SYMBOL = 'MATIC';
+export const DECIMALS = 18;
+
+export const NO_ETHEREUM_OBJECT = /No Ethereum provider was found on window.ethereum/;
+
+export const ERROR = 'error';
+export const SWITCH_ERROR_CODE = 4902;
