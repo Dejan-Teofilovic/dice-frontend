@@ -40,7 +40,7 @@ export default function TopNavbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: 3 }}>
+    <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: 3, boxShadow: 'none' }}>
       <Container maxWidth="xl">
         <Toolbar>
           <Button component={RouterLink} to="/">
