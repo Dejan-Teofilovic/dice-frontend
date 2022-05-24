@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { PrimaryButton } from '../../components/styledComponents';
 import MotionDiv from '../../components/MotionDiv';
-import { varFadeInUp, varFadeInDown } from '../../utils/constants';
+import { varFadeInUp, varFadeInDown, FONT_IBM_PLEX_SERIF } from '../../utils/constants';
 
 export default function ExploreDice() {
   return (
@@ -12,15 +12,15 @@ export default function ExploreDice() {
           <Stack width="70%" mx="auto" spacing={4}>
             <MotionDiv variants={varFadeInUp}>
               <Typography
-                fontFamily="'Source Sans Pro', sans-serif"
-                fontSize={{ xs: 24, sm: 36, md: 42 }}
+                fontFamily="sfProRounded"
+                fontSize={{ xs: 24, sm: 36, md: 48 }}
                 color="white"
                 textAlign={{ xs: 'center', md: 'left' }}
               >Hand Crafted Wooden Figure</Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInDown}>
               <Typography
-                fontFamily="'IBM Plex Mono', monospace"
+                fontFamily={FONT_IBM_PLEX_SERIF}
                 fontSize={{ xs: 12, md: 16 }}
                 textAlign={{ xs: 'center', md: 'left' }}
                 color="#9DB7BD"
@@ -51,15 +51,15 @@ export default function ExploreDice() {
           <Stack width="70%" mx="auto" spacing={4} mt={{ xs: 8, md: 0 }}>
             <MotionDiv variants={varFadeInUp}>
               <Typography
-                fontFamily="'Source Sans Pro', sans-serif"
-                fontSize={{ xs: 24, sm: 36, md: 42 }}
+                fontFamily="sfProRounded"
+                fontSize={{ xs: 24, sm: 36, md: 48 }}
                 color="white"
                 textAlign={{ xs: 'center', md: 'left' }}
               >Bespoke 3d printed Figure</Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInDown}>
               <Typography
-                fontFamily="'IBM Plex Mono', monospace"
+                fontFamily={FONT_IBM_PLEX_SERIF}
                 fontSize={{ xs: 12, md: 16 }}
                 textAlign={{ xs: 'center', md: 'left' }}
                 color="#9DB7BD"

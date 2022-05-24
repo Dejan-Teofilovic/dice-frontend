@@ -1,7 +1,14 @@
 import React from 'react';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import MotionDiv from '../../components/MotionDiv';
-import { varFadeInDown, varFadeInLeft, varFadeInRight, varFadeInUp } from '../../utils/constants';
+import { 
+  FONT_IBM_PLEX, 
+  FONT_IBM_PLEX_SERIF, 
+  varFadeInDown, 
+  varFadeInLeft, 
+  varFadeInRight, 
+  varFadeInUp 
+} from '../../utils/constants';
 
 export default function Home() {
   return (
@@ -12,26 +19,27 @@ export default function Home() {
             <Typography
               mt={{ xs: 5, sm: 5, md: 5, lg: 15 }}
               fontSize={{ xs: 28, md: 48 }}
-              fontFamily="'IBM Plex Mono', monospace"
-              fontWeight={700}
+              fontFamily="sfProRounded"
+              fontWeight={900}
               textAlign={{ xs: 'center', md: 'left' }}
               color="white"
+              letterSpacing={3}
             >
               <Typography
                 component="span"
-                fontSize="inherit"
-                fontFamily="'Source Sans Pro', sans-serif"
+                fontSize={{ xs: 32, md: 54 }}
+                fontFamily={FONT_IBM_PLEX}
                 fontWeight="inherit"
                 fontStyle="italic"
                 color="#A1275D"
-              >What if</Typography> you can touch your PFP NFT?
+              >What if</Typography>&nbsp;you can touch your PFP NFT?
             </Typography>
           </MotionDiv>
 
           <MotionDiv variants={varFadeInRight}>
             <Typography
               mt={2}
-              fontFamily="'IBM Plex Mono', monospace"
+              fontFamily={FONT_IBM_PLEX_SERIF}
               fontSize={{ xs: 12, md: 18 }}
               textAlign={{ xs: 'center', md: 'left' }}
               color="#9DB7BD"

@@ -2,6 +2,11 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: sfProRounded;
+  src: url(../public/assets/fonts/FontsFree-Net-SF-Pro-Rounded-Regular.ttf);
+}
+
 .bg-main {
   background: url(../public/assets/images/background.png) no-repeat center center fixed;
   background-size: cover;

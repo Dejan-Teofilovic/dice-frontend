@@ -68,6 +68,12 @@ export const NO_ETHEREUM_OBJECT = /No Ethereum provider was found on window.ethe
 export const ERROR = 'error';
 export const SWITCH_ERROR_CODE = 4902;
 
+//  Fonts
+export const FONT_VARELA = "'Varela Round', sans-serif";
+export const FONT_IBM_PLEX = "'IBM Plex Sans', sans-serif";
+export const FONT_IBM_PLEX_SERIF = "'IBM Plex Serif', serif";
+export const FONT_SANS_PRO = "'Source Sans Pro', sans-serif";
+
 //  Animations
 export const varFadeInUp = {
   hidden: {
