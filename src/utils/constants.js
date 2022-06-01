@@ -73,6 +73,8 @@ export const FONT_VARELA = "'Varela Round', sans-serif";
 export const FONT_IBM_PLEX = "'IBM Plex Sans', sans-serif";
 export const FONT_IBM_PLEX_SERIF = "'IBM Plex Serif', serif";
 export const FONT_SANS_PRO = "'Source Sans Pro', sans-serif";
+export const FONT_PRIMARY = 'sfProRounded';
+
 
 //  Animations
 export const varFadeInUp = {
@@ -127,3 +129,9 @@ export const varFadeInRight = {
     },
   }
 };
+
+//  Colors
+export const COLOR_BRIGHT = 'white';
+export const COLOR_INFO = '#005d76';
+export const COLOR_PRIMARY = '#A1275D';
+export const COLOR_SECONDARY = '#9DB7BD';

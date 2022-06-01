@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { PrimaryButton } from '../../components/styledComponents';
 import MotionDiv from '../../components/MotionDiv';
-import { varFadeInUp, varFadeInDown, FONT_IBM_PLEX_SERIF } from '../../utils/constants';
+import { varFadeInUp, varFadeInDown, FONT_IBM_PLEX_SERIF, COLOR_SECONDARY, FONT_PRIMARY } from '../../utils/constants';
 
 export default function ExploreDice() {
   return (
@@ -12,8 +12,8 @@ export default function ExploreDice() {
           <Stack width="70%" mx="auto" spacing={4}>
             <MotionDiv variants={varFadeInUp}>
               <Typography
-                fontFamily="sfProRounded"
-                fontSize={{ xs: 24, sm: 36, md: 48 }}
+                fontFamily={FONT_PRIMARY}
+                fontSize={{ xs: 18, sm: 30, md: 42 }}
                 color="white"
                 textAlign={{ xs: 'center', md: 'left' }}
               >Hand Crafted Wooden Figure</Typography>
@@ -23,23 +23,32 @@ export default function ExploreDice() {
                 fontFamily={FONT_IBM_PLEX_SERIF}
                 fontSize={{ xs: 12, md: 16 }}
                 textAlign={{ xs: 'center', md: 'left' }}
-                color="#9DB7BD"
+                color={COLOR_SECONDARY}
               >
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
               </Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInUp}>
-              <Box
-                component="img"
-                src="/assets/images/explore_hero_1.jpg"
-                height={{ xs: 200, sm: 250, md: 300, lg: 350 }}
-                sx={{ objectFit: 'cover' }}
-              />
+              <Stack direction="row" justifyContent={{ xs: 'center', md: 'start' }}>
+                <Box
+                  component="img"
+                  src="/assets/images/explore_hero_1.jpg"
+                  height={{ xs: 150, sm: 200, md: 250, lg: 300 }}
+                  sx={{ objectFit: 'cover' }}
+                />
+              </Stack>
             </MotionDiv>
 
             <MotionDiv variants={varFadeInDown}>
               <Stack direction="row" justifyContent={{ xs: 'center', md: 'start' }}>
-                <PrimaryButton sx={{ textTransform: 'uppercase', color: 'white', px: 3 }}>
+                <PrimaryButton
+                  sx={{
+                    color: 'white',
+                    px: 3,
+                    fontSize: { xs: '1rem', md: '1.5rem' },
+                    fontWeight: 900
+                  }}
+                >
                   Join the waitlist now
                 </PrimaryButton>
               </Stack>
@@ -51,33 +60,42 @@ export default function ExploreDice() {
           <Stack width="70%" mx="auto" spacing={4} mt={{ xs: 8, md: 0 }}>
             <MotionDiv variants={varFadeInUp}>
               <Typography
-                fontFamily="sfProRounded"
-                fontSize={{ xs: 24, sm: 36, md: 48 }}
+                fontFamily={FONT_PRIMARY}
+                fontSize={{ xs: 18, sm: 30, md: 42 }}
                 color="white"
                 textAlign={{ xs: 'center', md: 'left' }}
-              >Bespoke 3d printed Figure</Typography>
+              >Bespoke 3D Printed Figure</Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInDown}>
               <Typography
                 fontFamily={FONT_IBM_PLEX_SERIF}
                 fontSize={{ xs: 12, md: 16 }}
                 textAlign={{ xs: 'center', md: 'left' }}
-                color="#9DB7BD"
+                color={COLOR_SECONDARY}
               >
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
               </Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInUp}>
-              <Box
-                component="img"
-                src="/assets/images/explore_hero_2.jpg"
-                height={{ xs: 200, sm: 250, md: 300, lg: 350 }}
-                sx={{ objectFit: 'cover' }}
-              />
+              <Stack direction="row" justifyContent={{ xs: 'center', md: 'start' }}>
+                <Box
+                  component="img"
+                  src="/assets/images/explore_hero_2.jpg"
+                  height={{ xs: 150, sm: 200, md: 250, lg: 300 }}
+                  sx={{ objectFit: 'cover' }}
+                />
+              </Stack>
             </MotionDiv>
             <MotionDiv variants={varFadeInDown}>
               <Stack direction="row" justifyContent={{ xs: 'center', md: 'start' }}>
-                <PrimaryButton sx={{ textTransform: 'uppercase', color: 'white', px: 3 }}>
+                <PrimaryButton
+                  sx={{
+                    color: 'white',
+                    px: 3,
+                    fontSize: { xs: '1rem', md: '1.5rem' },
+                    fontWeight: 900
+                  }}
+                >
                   Join the waitlist now
                 </PrimaryButton>
               </Stack>
