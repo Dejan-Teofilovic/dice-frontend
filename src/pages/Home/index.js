@@ -1,13 +1,14 @@
 import React from 'react';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import MotionDiv from '../../components/MotionDiv';
-import { 
-  FONT_IBM_PLEX, 
-  FONT_IBM_PLEX_SERIF, 
-  varFadeInDown, 
-  varFadeInLeft, 
-  varFadeInRight, 
-  varFadeInUp 
+import {
+  FONT_IBM_PLEX,
+  FONT_IBM_PLEX_SERIF,
+  varFadeInDown,
+  varFadeInLeft,
+  varFadeInRight,
+  varFadeInUp
 } from '../../utils/constants';
 
 export default function Home() {
@@ -50,7 +51,14 @@ export default function Home() {
 
           <MotionDiv variants={varFadeInDown}>
             <Stack direction="row" justifyContent={{ xs: 'center', md: 'start' }}>
-              <Box component="img" src="/assets/images/circle_text.png" mt={5} width={{ xs: '40%', sm: '30%', md: '25%' }} />
+              <RouterLink to="/explore-dice">
+                <Box
+                  component="img"
+                  src="/assets/images/circle_text.png"
+                  mt={5}
+                  // width={{ xs: '40%', sm: '30%', md: '25%' }}
+                />
+              </RouterLink>
             </Stack>
           </MotionDiv>
 

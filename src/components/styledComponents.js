@@ -13,6 +13,6 @@ export const PrimaryButton = styled(Button)`
 
 export const TextButton = styled(Button)`
   font-family: sfProRounded;
-  color: #9DB7BD;
+  color: #005d76;
   text-transform: capitalize;
 `;

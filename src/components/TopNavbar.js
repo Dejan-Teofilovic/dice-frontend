@@ -57,7 +57,12 @@ export default function TopNavbar() {
             ROUTES.map(route => (
               <TextButton
                 key={route.id}
-                sx={{ mr: 4, fontWeight: 600, display: { xs: 'none', md: 'flex' } }}
+                sx={{
+                  mr: 4,
+                  fontWeight: 600,
+                  display: { xs: 'none', md: 'flex' },
+                  fontSize: { xs: 14, sm: 16, md: 18 }
+                }}
                 component={RouterLink}
                 to={route.path}
               >{route.name}</TextButton>
@@ -69,11 +74,13 @@ export default function TopNavbar() {
               <PrimaryButton
                 variant="contained"
                 onClick={handleDisconnect}
+                sx={{ fontSize: { xs: 14, sm: 16, md: 18 } }}
               >Disconnect</PrimaryButton>
             ) : (
               <PrimaryButton
                 variant="contained"
                 onClick={() => connectWallet()}
+                sx={{ fontSize: { xs: 14, sm: 16, md: 18 } }}
               >Connect</PrimaryButton>
             )
           }
