@@ -41,7 +41,7 @@ export default function Home() {
             <Typography
               mt={2}
               fontFamily={FONT_IBM_PLEX_SERIF}
-              fontSize={{ xs: 12, md: 18 }}
+              fontSize={{ xs: 16, md: 18 }}
               textAlign={{ xs: 'center', md: 'left' }}
               color="#9DB7BD"
             >

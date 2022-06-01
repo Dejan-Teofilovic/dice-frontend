@@ -27,7 +27,7 @@ export default function ExploreDice() {
             <MotionDiv variants={varFadeInDown}>
               <Typography
                 fontFamily={FONT_IBM_PLEX_SERIF}
-                fontSize={{ xs: 12, md: 16 }}
+                fontSize={{ xs: 16, md: 18 }}
                 textAlign={{ xs: 'center', md: 'left' }}
                 color={COLOR_SECONDARY}
               >
@@ -75,7 +75,7 @@ export default function ExploreDice() {
             <MotionDiv variants={varFadeInDown}>
               <Typography
                 fontFamily={FONT_IBM_PLEX_SERIF}
-                fontSize={{ xs: 12, md: 16 }}
+                fontSize={{ xs: 16, md: 18 }}
                 textAlign={{ xs: 'center', md: 'left' }}
                 color={COLOR_SECONDARY}
               >
