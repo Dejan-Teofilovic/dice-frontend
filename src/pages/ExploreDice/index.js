@@ -2,7 +2,13 @@ import React from 'react';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { PrimaryButton } from '../../components/styledComponents';
 import MotionDiv from '../../components/MotionDiv';
-import { varFadeInUp, varFadeInDown, FONT_IBM_PLEX_SERIF, COLOR_SECONDARY, FONT_PRIMARY } from '../../utils/constants';
+import { 
+  varFadeInUp, 
+  varFadeInDown, 
+  FONT_IBM_PLEX_SERIF, 
+  COLOR_SECONDARY, 
+  FONT_PRIMARY 
+} from '../../utils/constants';
 
 export default function ExploreDice() {
   return (
