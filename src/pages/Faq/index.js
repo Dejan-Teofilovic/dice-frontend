@@ -1,5 +1,14 @@
 import React from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Stack, styled, Typography } from '@mui/material';
+import { 
+  Accordion, 
+  AccordionDetails, 
+  AccordionSummary, 
+  Box, 
+  Container, 
+  Stack, 
+  styled, 
+  Typography 
+} from '@mui/material';
 import { FAQ, varFadeInUp, FONT_IBM_PLEX_SERIF } from '../../utils/constants';
 import MotionDiv from '../../components/MotionDiv';
 
