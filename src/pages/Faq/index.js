@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, Box, Container, styled, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Stack, styled, Typography } from '@mui/material';
 import { FAQ, varFadeInUp, FONT_IBM_PLEX_SERIF } from '../../utils/constants';
 import MotionDiv from '../../components/MotionDiv';
 
@@ -29,26 +29,27 @@ export default function Faq() {
         textAlign="center"
         color="white"
       >Frequently Asked Questions</Typography>
-      <Box width={{ xs: '100%', md: '70%' }} mt={6}>
-        {
-          FAQ.map(faqItem => (
-            <MotionDiv key={faqItem.id} variants={varFadeInUp}>
-              <CustomAccordion>
-                <AccordionSummary>
-                  <Typography fontFamily="sfProRounded" fontSize={20}>{faqItem.question}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography
-                    fontFamily={FONT_IBM_PLEX_SERIF}
-                    fontSize={16}
-                    color="#9DB7BD"
-                  >{faqItem.answer}</Typography>
-                </AccordionDetails>
-              </CustomAccordion>
-            </MotionDiv>
-          ))
-        }
-      </Box>
+      <Stack direction="row" justifyContent="center">
+        <Box width={{ xs: '100%', md: '70%' }} mt={6}>
+          {
+            FAQ.map(faqItem => (
+              <MotionDiv key={faqItem.id} variants={varFadeInUp}>
+                <CustomAccordion>
+                  <AccordionSummary>
+                    <Typography fontFamily="sfProRounded" fontSize={20}>{faqItem.question}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography
+                      fontFamily={FONT_IBM_PLEX_SERIF}
+                      fontSize={16}
+                    >{faqItem.answer}</Typography>
+                  </AccordionDetails>
+                </CustomAccordion>
+              </MotionDiv>
+            ))
+          }
+        </Box>
+      </Stack>
     </Container>
   );
 }
