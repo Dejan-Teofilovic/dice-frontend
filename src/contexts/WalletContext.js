@@ -12,7 +12,6 @@ import {
   NATIVE_CURRENCY_SYMBOL,
   DECIMALS,
   API_TO_GET_NFTS,
-  ROUTES,
 } from '../utils/constants';
 import { AlertMessageContext } from './AlertMessageContext';
 import { isNoEthereumObject } from '../utils/errors';
