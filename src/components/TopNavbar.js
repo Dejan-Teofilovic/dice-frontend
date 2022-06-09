@@ -55,6 +55,7 @@ export default function TopNavbar() {
           <Box flexGrow={1} />
           {
             ROUTES.map(route => (
+              route.visible &&
               <TextButton
                 key={route.id}
                 sx={{
@@ -109,6 +110,7 @@ export default function TopNavbar() {
               <List sx={{ mt: 2 }} onClick={() => setDrawerOpened(false)}>
                 {
                   ROUTES.map(route => (
+                    route.visible &&
                     <ListItem key={route.id}>
                       <ListItemButton
                         sx={{ color: '#9DB7BD', fontFamily: "'Source Sans Pro', sans-serif" }}

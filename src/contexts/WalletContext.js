@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import { useWeb3React } from '@web3-react/core';
+import axios from 'axios';
 import {
   ERROR,
   CHAIN_ID,
@@ -10,18 +11,22 @@ import {
   NATIVE_CURRENCY_NAME,
   NATIVE_CURRENCY_SYMBOL,
   DECIMALS,
+  API_TO_GET_NFTS,
+  ROUTES,
 } from '../utils/constants';
 import { AlertMessageContext } from './AlertMessageContext';
 import { isNoEthereumObject } from '../utils/errors';
 import { injected } from '../utils/connectors';
 import { LoadingContext } from './LoadingContext';
+import { handleVisibleMyNftsPage } from '../utils/functions';
 
 // ----------------------------------------------------------------------
 
 const initialState = {
   walletConnected: false,
   currentAccount: '',
-  tokenId: 0
+  tokenId: 0,
+  nfts: []
 };
 
 const handlers = {
@@ -42,6 +47,12 @@ const handlers = {
       ...state,
       tokenId: action.payload
     };
+  },
+  SET_NFTS: (state, action) => {
+    return {
+      ...state,
+      nfts: action.payload
+    };
   }
 };
 
@@ -52,7 +63,8 @@ const reducer = (state, action) =>
 const WalletContext = createContext({
   ...initialState,
   connectWallet: () => Promise.resolve(),
-  disconnectWallet: () => Promise.resolve()
+  disconnectWallet: () => Promise.resolve(),
+  getNftsOfWallet: () => Promise.resolve()
 });
 
 //  Provider
@@ -81,6 +93,8 @@ function WalletProvider({ children }) {
       type: 'SET_WALLET_CONNECTED',
       payload: false
     });
+
+    handleVisibleMyNftsPage(false);
   };
 
   useEffect(() => {
@@ -96,6 +110,8 @@ function WalletProvider({ children }) {
             type: 'SET_WALLET_CONNECTED',
             payload: true
           });
+
+          handleVisibleMyNftsPage(true);
         } else {
           if (window.ethereum) {
             //  If the current network isn't the expected one, switch it to the expected one.
@@ -114,6 +130,8 @@ function WalletProvider({ children }) {
                 type: 'SET_WALLET_CONNECTED',
                 payload: true
               });
+
+              handleVisibleMyNftsPage(true);
 
             } catch (switchError) {
               //  If the expected network isn't existed in the metamask.
@@ -143,6 +161,8 @@ function WalletProvider({ children }) {
                   type: 'SET_WALLET_CONNECTED',
                   payload: true
                 });
+
+                handleVisibleMyNftsPage(true);
               } else {
                 dispatch({
                   type: 'SET_CURRENT_ACCOUNT',
@@ -158,6 +178,8 @@ function WalletProvider({ children }) {
                   severity: ERROR,
                   message: 'Wallet connection failed.'
                 });
+
+                handleVisibleMyNftsPage(false);
               }
             }
           } else {
@@ -184,12 +206,19 @@ function WalletProvider({ children }) {
     }
   }, []);
 
+  const getNftsOfWallet = async () => {
+    console.log('# state.currentAccount => ', state.currentAccount);
+    const nfts = await axios.get(`${API_TO_GET_NFTS}?owner=${state.currentAccount}&limit=50`);
+    console.log('# nfts => ', nfts);
+  };
+
   return (
     <WalletContext.Provider
       value={{
         ...state,
         connectWallet,
-        disconnectWallet
+        disconnectWallet,
+        getNftsOfWallet
       }}
     >
       {children}

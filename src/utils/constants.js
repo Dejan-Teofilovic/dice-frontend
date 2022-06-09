@@ -2,15 +2,22 @@ export const ROUTES = [
   {
     id: 1,
     name: 'Explore Dice',
-    path: '/explore-dice'
+    path: '/explore-dice',
+    visible: true
   },
   {
     id: 2,
     name: 'FAQ',
-    path: '/faq'
+    path: '/faq',
+    visible: true
+  },
+  {
+    id: 3,
+    name: 'My NFTs',
+    path: '/my-nfts',
+    visible: false
   }
 ];
-
 export const FAQ = [
   {
     id: 1,
@@ -75,7 +82,6 @@ export const FONT_IBM_PLEX_SERIF = "'IBM Plex Serif', serif";
 export const FONT_SANS_PRO = "'Source Sans Pro', sans-serif";
 export const FONT_PRIMARY = 'sfProRounded';
 
-
 //  Animations
 export const varFadeInUp = {
   hidden: {
@@ -135,3 +141,5 @@ export const COLOR_BRIGHT = 'white';
 export const COLOR_INFO = '#005d76';
 export const COLOR_PRIMARY = '#A1275D';
 export const COLOR_SECONDARY = '#9DB7BD';
+
+export const API_TO_GET_NFTS = 'https://testnets-api.opensea.io/api/v1/assets';
