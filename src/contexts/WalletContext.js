@@ -47,12 +47,14 @@ const handlers = {
       tokenId: action.payload
     };
   },
-  SET_NFTS: (state, action) => {
+  ADD_NFTS: (state, action) => {
+    let originNfts = [...state.nfts];
+    originNfts.push(action.payload);
     return {
       ...state,
-      nfts: action.payload
+      nfts: originNfts
     };
-  }
+  },
 };
 
 const reducer = (state, action) =>
@@ -205,10 +207,31 @@ function WalletProvider({ children }) {
     }
   }, []);
 
+  /** Get NFTs of the conencted wallet */
   const getNftsOfWallet = async () => {
-    console.log('# state.currentAccount => ', state.currentAccount);
-    const nfts = await axios.get(`${API_TO_GET_NFTS}?owner=${state.currentAccount}&limit=50`);
-    console.log('# nfts => ', nfts);
+    openLoading();
+    const INIT_API = `${API_TO_GET_NFTS}?owner=${state.currentAccount}&limit=50`;
+    let firstNfts = await axios.get(INIT_API);
+    dispatch({
+      type: 'ADD_NFTS',
+      payload: firstNfts.assets
+    });
+
+    let getNextNfts = async (nextValue) => {
+      let nextNfts = await axios.get(`${INIT_API}&cursor=${nextValue}`);
+      dispatch({
+        type: 'ADD_NFTS',
+        payload: nextNfts.assets
+      });
+      if (nextNfts.next) {
+        getNextNfts(nextNfts.next);
+      }
+    };
+
+    if (firstNfts.next) {
+      getNextNfts(firstNfts.next);
+    }
+    closeLoading();
   };
 
   return (
