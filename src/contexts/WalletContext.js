@@ -12,12 +12,13 @@ import {
   NATIVE_CURRENCY_SYMBOL,
   DECIMALS,
   API_TO_GET_NFTS,
+  WARNING
 } from '../utils/constants';
-import { AlertMessageContext } from './AlertMessageContext';
 import { isNoEthereumObject } from '../utils/errors';
 import { injected } from '../utils/connectors';
-import { LoadingContext } from './LoadingContext';
 import { handleVisibleMyNftsPage } from '../utils/functions';
+import { LoadingContext } from './LoadingContext';
+import { AlertMessageContext } from './AlertMessageContext';
 
 // ----------------------------------------------------------------------
 
@@ -211,27 +212,38 @@ function WalletProvider({ children }) {
   const getNftsOfWallet = async () => {
     openLoading();
     const INIT_API = `${API_TO_GET_NFTS}?owner=${state.currentAccount}&limit=50`;
-    let firstNfts = await axios.get(INIT_API);
-    dispatch({
-      type: 'ADD_NFTS',
-      payload: firstNfts.assets
-    });
+    let firstNfts = (await axios.get(INIT_API)).data;
+    console.log('# firstNfts => ', firstNfts);
 
-    let getNextNfts = async (nextValue) => {
-      let nextNfts = await axios.get(`${INIT_API}&cursor=${nextValue}`);
+    if (firstNfts) {
       dispatch({
         type: 'ADD_NFTS',
-        payload: nextNfts.assets
+        payload: firstNfts.assets
       });
-      if (nextNfts.next) {
-        getNextNfts(nextNfts.next);
-      }
-    };
 
-    if (firstNfts.next) {
-      getNextNfts(firstNfts.next);
+      let getNextNfts = async (nextValue) => {
+        let nextNfts = await axios.get(`${INIT_API}&cursor=${nextValue}`);
+        dispatch({
+          type: 'ADD_NFTS',
+          payload: nextNfts.assets
+        });
+        if (nextNfts.next) {
+          getNextNfts(nextNfts.next);
+        }
+      };
+
+      if (firstNfts.next) {
+        getNextNfts(firstNfts.next);
+      }
+      closeLoading();
+    } else {
+      openAlert({
+        severity: WARNING,
+        message: 'Internet has some problem. Check your connection, please.'
+      });
+      closeLoading();
     }
-    closeLoading();
+
   };
 
   return (

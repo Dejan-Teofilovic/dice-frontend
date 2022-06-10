@@ -73,6 +73,7 @@ export const DECIMALS = 18;
 export const NO_ETHEREUM_OBJECT = /No Ethereum provider was found on window.ethereum/;
 
 export const ERROR = 'error';
+export const WARNING = 'warning';
 export const SWITCH_ERROR_CODE = 4902;
 
 //  Fonts
