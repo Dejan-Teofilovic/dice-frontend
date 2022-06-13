@@ -4,9 +4,13 @@ import useWallet from '../../hooks/useWallet';
 import NftCard from './NftCard';
 import MotionDiv from '../../components/MotionDiv';
 import { varFadeInUp } from '../../utils/constants';
+import OrderDialog from '../../components/OrderDialog';
+import useOrderDialog from '../../hooks/useOrderDialog';
 
 export default function MyNfts() {
   const { nfts } = useWallet();
+  const { openOrderDialog } = useOrderDialog();
+
   return (
     <Box px={4}>
       <MotionDiv variants={varFadeInUp}>
@@ -26,11 +30,12 @@ export default function MyNfts() {
         {
           nfts.map((nftItem, index) => (
             <Grid item xs={12} sm={3} md={2} key={index}>
-              <NftCard data={nftItem} />
+              <NftCard data={nftItem} handleClick={() => openOrderDialog(nftItem)} />
             </Grid>
           ))
         }
       </Grid>
+      <OrderDialog />
     </Box>
   );
 }

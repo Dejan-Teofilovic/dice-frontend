@@ -2,9 +2,9 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
 
-export default function NftCard({ data }) {
+export default function NftCard({ data, handleClick }) {
   return (
-    <Card sx={{ bgcolor: grey[900] }}>
+    <Card sx={{ bgcolor: grey[900], cursor: 'pointer' }} onClick={handleClick}>
       <CardMedia
         component="img"
         src={data.image_thumbnail_url || "/assets/images/nft_placeholder.webp"}

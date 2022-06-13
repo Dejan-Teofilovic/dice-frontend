@@ -8,6 +8,13 @@ body {
 }
 
 .bg-main {
-  background: url(../public/assets/images/background.png) no-repeat center center fixed;
+  background: url(../public/assets/images/background.png) no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
+.bg-modal {
+  background-image: url(../public/assets/images/background.png);
+  background-repeat: no-repeat;
   background-size: cover;
 }

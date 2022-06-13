@@ -4,8 +4,9 @@ import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
 import { AlertMessageProvider } from './contexts/AlertMessageContext';
 import { WalletProvider } from './contexts/WalletContext';
-import Routes from './Routes';
+import { OrderDialogProvider } from './contexts/OrderDialogContext';
 import { LoadingProvider } from './contexts/LoadingContext';
+import Routes from './Routes';
 
 const getLibrary = (provider) => {
   const library = new Web3Provider(provider, "any");
@@ -18,9 +19,11 @@ function App() {
       <LoadingProvider>
         <AlertMessageProvider>
           <WalletProvider>
-            <Router>
-              <Routes />
-            </Router>
+            <OrderDialogProvider>
+              <Router>
+                <Routes />
+              </Router>
+            </OrderDialogProvider>
           </WalletProvider>
         </AlertMessageProvider>
       </LoadingProvider>
