@@ -48,11 +48,14 @@ export const DTextField = styled(TextField)({
   },
   '& .MuiFormHelperText-root': {
     margin: '10px 0px'
+  },
+  '& .MuiInputBase-multiline': {
+    padding: 0
   }
 });
 
 export const DDialog = styled(Dialog)({
-  '& .MuiPaper-root': {
+  '& .MuiDialog-paper': {
     background: 'none'
   }
 });

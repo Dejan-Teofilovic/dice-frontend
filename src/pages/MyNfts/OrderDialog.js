@@ -1,12 +1,22 @@
-import React from 'react';
-import { Box, DialogContent, DialogTitle, Grid, IconButton, Stack, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
+import { 
+  Box, 
+  DialogActions, 
+  DialogContent, 
+  DialogTitle, 
+  Grid, 
+  IconButton, 
+  Stack, 
+  Typography 
+} from '@mui/material';
 import { Close, Error } from '@mui/icons-material';
 import { grey } from '@mui/material/colors';
 import * as yup from 'yup';
 import { useFormik } from "formik";
-import useOrderDialog from '../hooks/useOrderDialog';
-import { DTextField, DDialog } from './styledComponents';
-import { FONT_PRIMARY } from '../utils/constants';
+import useOrderDialog from '../../hooks/useOrderDialog';
+import { DTextField, DDialog, PrimaryButton } from '../../components/styledComponents';
+import { FONT_PRIMARY } from '../../utils/constants';
+import NftCard from './NftCard';
 
 const validSchema = yup.object().shape({
   email: yup.string().email('Invaild email.').required('Email is required.'),
@@ -15,12 +25,6 @@ const validSchema = yup.object().shape({
 
 export default function OrderDialog() {
   const { opened, nftData, closeOrderDialog } = useOrderDialog();
-
-  const handleSubmit = (values) => {
-    console.log('# nftData => ', nftData);
-    console.log('# values => ', values);
-  };
-
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -32,14 +36,32 @@ export default function OrderDialog() {
     }
   });
 
+  useEffect(() => {
+    if (!opened) {
+      formik.setValues({
+        email: '',
+        message: ''
+      });
+      formik.setTouched({
+        email: false,
+        message: false
+      });
+    }
+  }, [opened]);
+
+  const handleSubmit = (values) => {
+    console.log('# nftData => ', nftData);
+    console.log('# values => ', values);
+  };
+
   return (
     <DDialog
       open={opened}
       onClose={closeOrderDialog}
       fullWidth
-      maxWidth="sm"
+      maxWidth="md"
     >
-      <Box className="bg-modal">
+      <Box className="bg-modal" p={3}>
         <DialogTitle
           sx={{
             py: 2,
@@ -62,9 +84,9 @@ export default function OrderDialog() {
           ><Close /></IconButton>
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center' }}>
             <Grid item xs={12} md={7}>
-              <Stack spacing={5}>
+              <Stack spacing={2}>
                 <DTextField
                   type="email"
                   name="email"
@@ -88,7 +110,6 @@ export default function OrderDialog() {
                 />
 
                 <DTextField
-                  type="message"
                   name="message"
                   placeholder="Enter Messaage"
                   value={formik.values.message}
@@ -107,12 +128,26 @@ export default function OrderDialog() {
                       </Typography>) : (<></>)
                   }
                   fullWidth
+                  multiline
+                  rows={5}
                 />
               </Stack>
             </Grid>
-            <Grid item xs={12} md={5}></Grid>
+
+            <Grid item xs={12} md={5}>
+              <Stack direction="row" justifyContent={{ xs: "center", md: 'end' }}>
+                <Box width="80%">
+                  <NftCard data={nftData} />
+                </Box>
+              </Stack>
+            </Grid>
           </Grid>
         </DialogContent>
+        <DialogActions>
+          <PrimaryButton onClick={formik.handleSubmit} variant="contained">
+            Submit
+          </PrimaryButton>
+        </DialogActions>
       </Box>
     </DDialog>
   );

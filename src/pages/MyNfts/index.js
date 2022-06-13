@@ -4,7 +4,7 @@ import useWallet from '../../hooks/useWallet';
 import NftCard from './NftCard';
 import MotionDiv from '../../components/MotionDiv';
 import { varFadeInUp } from '../../utils/constants';
-import OrderDialog from '../../components/OrderDialog';
+import OrderDialog from './OrderDialog'
 import useOrderDialog from '../../hooks/useOrderDialog';
 
 export default function MyNfts() {

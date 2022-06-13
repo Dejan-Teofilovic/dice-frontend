@@ -142,6 +142,7 @@ function WalletProvider({ children }) {
     (async () => {
       if (chainId) {
         if (chainId === CHAIN_ID) {
+          getNftsOfWallet(account);
           dispatch({
             type: 'SET_CURRENT_ACCOUNT',
             payload: account
@@ -151,7 +152,6 @@ function WalletProvider({ children }) {
             type: 'SET_WALLET_CONNECTED',
             payload: true
           });
-          getNftsOfWallet(account);
           handleVisibleMyNftsPage(true);
         } else {
           if (window.ethereum) {
@@ -161,7 +161,7 @@ function WalletProvider({ children }) {
                 method: 'wallet_switchEthereumChain',
                 params: [{ chainId: `0x${CHAIN_ID.toString(16)}` }],
               });
-
+              getNftsOfWallet(account);
               dispatch({
                 type: 'SET_CURRENT_ACCOUNT',
                 payload: account
@@ -171,7 +171,6 @@ function WalletProvider({ children }) {
                 type: 'SET_WALLET_CONNECTED',
                 payload: true
               });
-              getNftsOfWallet(account);
               handleVisibleMyNftsPage(true);
 
             } catch (switchError) {
@@ -193,6 +192,7 @@ function WalletProvider({ children }) {
                     },
                   ],
                 });
+                getNftsOfWallet(account);
                 dispatch({
                   type: 'SET_CURRENT_ACCOUNT',
                   payload: account
@@ -202,7 +202,6 @@ function WalletProvider({ children }) {
                   type: 'SET_WALLET_CONNECTED',
                   payload: true
                 });
-                getNftsOfWallet(account);
                 handleVisibleMyNftsPage(true);
               } else {
                 dispatch({
