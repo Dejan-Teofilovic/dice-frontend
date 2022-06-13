@@ -80,6 +80,8 @@ export const DECIMALS = 18;
 
 export const NO_ETHEREUM_OBJECT = /No Ethereum provider was found on window.ethereum/;
 
+export const SUCCESS = 'success';
+export const INFO = 'info';
 export const ERROR = 'error';
 export const WARNING = 'warning';
 export const SWITCH_ERROR_CODE = 4902;
@@ -152,3 +154,7 @@ export const COLOR_PRIMARY = '#A1275D';
 export const COLOR_SECONDARY = '#9DB7BD';
 
 export const API_TO_GET_NFTS = 'https://testnets-api.opensea.io/api/v1/assets';
+
+export const MESSAGE_ORDER_CREATE_SUCCESS = 'Your order has been registered.';
+export const MESSAGE_ORDER_UPDATE_SUCCESS = 'Your order has been updated.';
+export const MESSAGE_FAILED = 'Sorry. Your operation was failed. Try again, please.';

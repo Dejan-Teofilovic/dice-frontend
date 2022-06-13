@@ -15,8 +15,11 @@ import * as yup from 'yup';
 import { useFormik } from "formik";
 import useOrderDialog from '../../hooks/useOrderDialog';
 import { DTextField, DDialog, PrimaryButton } from '../../components/styledComponents';
-import { FONT_PRIMARY } from '../../utils/constants';
+import { ERROR, FONT_PRIMARY, MESSAGE_FAILED, MESSAGE_ORDER_CREATE_SUCCESS, SUCCESS } from '../../utils/constants';
 import NftCard from './NftCard';
+import api from '../../utils/api';
+import useWallet from '../../hooks/useWallet';
+import useAlertMessage from '../../hooks/useAlertMessage';
 
 const validSchema = yup.object().shape({
   email: yup.string().email('Invaild email.').required('Email is required.'),
@@ -25,6 +28,9 @@ const validSchema = yup.object().shape({
 
 export default function OrderDialog() {
   const { opened, nftData, closeOrderDialog } = useOrderDialog();
+  const { currentAccount } = useWallet();
+  const { openAlert, closeAlert } = useAlertMessage();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -52,6 +58,22 @@ export default function OrderDialog() {
   const handleSubmit = (values) => {
     console.log('# nftData => ', nftData);
     console.log('# values => ', values);
+
+    api.post('/site/createOrder', {
+      walletAddress: currentAccount,
+      ...values,
+      nft: nftData
+    }).then(response => {
+      openAlert({
+        severity: SUCCESS,
+        message: MESSAGE_ORDER_CREATE_SUCCESS
+      });
+    }).catch(error => {
+      openAlert({
+        severity: ERROR,
+        message: MESSAGE_FAILED
+      });
+    });
   };
 
   return (
