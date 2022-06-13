@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from 'react';
 
 const initialState = {
   isOpened: false,
-  severity: '',
+  severity: 'success',
   message: ''
 };
 
@@ -75,7 +75,7 @@ function AlertMessageProvider({ children }) {
       type: 'INITIALIZE',
       payload: {
         isOpened: false,
-        severity: '',
+        severity: 'success',
         message: ''
       }
     });

@@ -5,6 +5,7 @@ import { Twitter } from '@mui/icons-material';
 import { grey } from '@mui/material/colors';
 import TopNavbar from '../components/TopNavbar';
 import Loading from '../components/Loading';
+import AlertMessage from '../components/AlertMessage';
 
 export default function MainLayout() {
   return (
@@ -27,6 +28,7 @@ export default function MainLayout() {
         <Twitter sx={{ fontSize: { xs: 32, md: 48 } }} />
       </IconButton>
       <Loading />
+      <AlertMessage />
     </Box>
   );
 }

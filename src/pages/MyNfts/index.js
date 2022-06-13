@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
-import { Container, Grid, Typography } from '@mui/material';
+import React from 'react';
+import { Box, Grid, Typography } from '@mui/material';
 import useWallet from '../../hooks/useWallet';
 import NftCard from './NftCard';
 import MotionDiv from '../../components/MotionDiv';
-import { FONT_IBM_PLEX, varFadeInUp } from '../../utils/constants';
+import { varFadeInUp } from '../../utils/constants';
 
 export default function MyNfts() {
-  const { getNftsOfWallet, nfts } = useWallet();
-  useEffect(() => {
-    getNftsOfWallet();
-  }, []);
+  const { nfts } = useWallet();
   return (
-    <Container maxWidth="xl">
+    <Box px={4}>
       <MotionDiv variants={varFadeInUp}>
         <Typography
           my={5}
@@ -25,13 +22,15 @@ export default function MyNfts() {
           My NFTs
         </Typography>
       </MotionDiv>
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         {
-          nfts.map(nftItem => (
-            <NftCard />
+          nfts.map((nftItem, index) => (
+            <Grid item xs={12} sm={3} md={2} key={index}>
+              <NftCard data={nftItem} />
+            </Grid>
           ))
         }
       </Grid>
-    </Container>
+    </Box>
   );
 }

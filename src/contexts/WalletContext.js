@@ -48,12 +48,10 @@ const handlers = {
       tokenId: action.payload
     };
   },
-  ADD_NFTS: (state, action) => {
-    let originNfts = [...state.nfts];
-    originNfts.push(action.payload);
+  SET_NFTS: (state, action) => {
     return {
       ...state,
-      nfts: originNfts
+      nfts: action.payload
     };
   },
 };
@@ -75,6 +73,47 @@ function WalletProvider({ children }) {
   const { openAlert } = useContext(AlertMessageContext);
   const { openLoading, closeLoading } = useContext(LoadingContext);
   const { active, activate, deactivate, account, chainId } = useWeb3React();
+
+  /** Get NFTs of the conencted wallet */
+  const getNftsOfWallet = async (walletAddress) => {
+    openLoading();
+    const nfts = [];
+    const INIT_API = `${API_TO_GET_NFTS}?owner=${walletAddress}&limit=50`;
+    let firstNfts = (await axios.get(INIT_API)).data;
+
+    if (firstNfts) {
+      nfts.push(...firstNfts.assets);
+
+      let getNextNfts = async (nextValue) => {
+        let { data: { assets, next } } = await axios.get(`${INIT_API}&cursor=${nextValue}`);
+        console.log('# assets => ', assets);
+        nfts.push(...assets);
+        if (next) {
+          getNextNfts(next);
+        }
+      };
+
+      if (firstNfts.next) {
+        await getNextNfts(firstNfts.next);
+      }
+      console.log('# nfts => ', nfts);
+      dispatch({
+        type: 'SET_NFTS',
+        payload: nfts
+      });
+      closeLoading();
+    } else {
+      dispatch({
+        type: 'SET_NFTS',
+        payload: []
+      });
+      openAlert({
+        severity: WARNING,
+        message: 'Internet has some problem. Check your connection, please.'
+      });
+      closeLoading();
+    }
+  };
 
   const connectWallet = async () => {
     openLoading();
@@ -112,7 +151,7 @@ function WalletProvider({ children }) {
             type: 'SET_WALLET_CONNECTED',
             payload: true
           });
-
+          getNftsOfWallet(account);
           handleVisibleMyNftsPage(true);
         } else {
           if (window.ethereum) {
@@ -132,7 +171,7 @@ function WalletProvider({ children }) {
                 type: 'SET_WALLET_CONNECTED',
                 payload: true
               });
-
+              getNftsOfWallet(account);
               handleVisibleMyNftsPage(true);
 
             } catch (switchError) {
@@ -163,7 +202,7 @@ function WalletProvider({ children }) {
                   type: 'SET_WALLET_CONNECTED',
                   payload: true
                 });
-
+                getNftsOfWallet(account);
                 handleVisibleMyNftsPage(true);
               } else {
                 dispatch({
@@ -207,44 +246,6 @@ function WalletProvider({ children }) {
       });
     }
   }, []);
-
-  /** Get NFTs of the conencted wallet */
-  const getNftsOfWallet = async () => {
-    openLoading();
-    const INIT_API = `${API_TO_GET_NFTS}?owner=${state.currentAccount}&limit=50`;
-    let firstNfts = (await axios.get(INIT_API)).data;
-    console.log('# firstNfts => ', firstNfts);
-
-    if (firstNfts) {
-      dispatch({
-        type: 'ADD_NFTS',
-        payload: firstNfts.assets
-      });
-
-      let getNextNfts = async (nextValue) => {
-        let nextNfts = await axios.get(`${INIT_API}&cursor=${nextValue}`);
-        dispatch({
-          type: 'ADD_NFTS',
-          payload: nextNfts.assets
-        });
-        if (nextNfts.next) {
-          getNextNfts(nextNfts.next);
-        }
-      };
-
-      if (firstNfts.next) {
-        getNextNfts(firstNfts.next);
-      }
-      closeLoading();
-    } else {
-      openAlert({
-        severity: WARNING,
-        message: 'Internet has some problem. Check your connection, please.'
-      });
-      closeLoading();
-    }
-
-  };
 
   return (
     <WalletContext.Provider
