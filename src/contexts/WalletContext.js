@@ -76,7 +76,6 @@ function WalletProvider({ children }) {
 
   /** Get NFTs of the conencted wallet */
   const getNftsOfWallet = async (walletAddress) => {
-    openLoading();
     const nfts = [];
     const INIT_API = `${API_TO_GET_NFTS}?owner=${walletAddress}&limit=50`;
     let firstNfts = (await axios.get(INIT_API)).data;
@@ -86,7 +85,6 @@ function WalletProvider({ children }) {
 
       let getNextNfts = async (nextValue) => {
         let { data: { assets, next } } = await axios.get(`${INIT_API}&cursor=${nextValue}`);
-        console.log('# assets => ', assets);
         nfts.push(...assets);
         if (next) {
           getNextNfts(next);
@@ -101,7 +99,6 @@ function WalletProvider({ children }) {
         type: 'SET_NFTS',
         payload: nfts
       });
-      closeLoading();
     } else {
       dispatch({
         type: 'SET_NFTS',
@@ -111,7 +108,6 @@ function WalletProvider({ children }) {
         severity: WARNING,
         message: 'Internet has some problem. Check your connection, please.'
       });
-      closeLoading();
     }
   };
 

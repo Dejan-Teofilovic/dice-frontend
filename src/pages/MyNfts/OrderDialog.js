@@ -15,7 +15,13 @@ import * as yup from 'yup';
 import { useFormik } from "formik";
 import useOrderDialog from '../../hooks/useOrderDialog';
 import { DTextField, DDialog, PrimaryButton } from '../../components/styledComponents';
-import { ERROR, FONT_PRIMARY, MESSAGE_FAILED, MESSAGE_ORDER_CREATE_SUCCESS, SUCCESS } from '../../utils/constants';
+import { 
+  ERROR, 
+  FONT_PRIMARY, 
+  MESSAGE_FAILED, 
+  MESSAGE_ORDER_CREATE_SUCCESS, 
+  SUCCESS 
+} from '../../utils/constants';
 import NftCard from './NftCard';
 import api from '../../utils/api';
 import useWallet from '../../hooks/useWallet';
@@ -29,7 +35,7 @@ const validSchema = yup.object().shape({
 export default function OrderDialog() {
   const { opened, nftData, closeOrderDialog } = useOrderDialog();
   const { currentAccount } = useWallet();
-  const { openAlert, closeAlert } = useAlertMessage();
+  const { openAlert } = useAlertMessage();
 
   const formik = useFormik({
     initialValues: {
