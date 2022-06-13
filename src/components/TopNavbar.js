@@ -44,13 +44,7 @@ export default function TopNavbar() {
       <Container maxWidth="xl">
         <Toolbar>
           <Button component={RouterLink} to="/">
-            <Typography
-              fontFamily="'IBM Plex Mono', monospace"
-              fontSize={28}
-              color="white"
-              display={{ xs: 'none', md: 'flex' }}
-            >DICE</Typography>
-            <Box component="img" src="/assets/images/logo.png" width={24} ml={1} />
+            <Box component="img" src="/assets/images/logo.png" width={100} alt="logo" />
           </Button>
           <Box flexGrow={1} />
           {
@@ -104,7 +98,7 @@ export default function TopNavbar() {
             <Box my={3}>
               <Stack direction="row" justifyContent="center" alignItems="center">
                 <Button component={RouterLink} to="/">
-                  <Box component="img" src="/assets/images/logo.png" />
+                  <Box component="img" src="/assets/images/logo.png" width={80} />
                 </Button>
               </Stack>
               <List sx={{ mt: 2 }} onClick={() => setDrawerOpened(false)}>

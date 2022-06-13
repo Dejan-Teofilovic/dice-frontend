@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { 
-  Box, 
-  DialogActions, 
-  DialogContent, 
-  DialogTitle, 
-  Grid, 
-  IconButton, 
-  Stack, 
-  Typography 
+import {
+  Box,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Grid,
+  IconButton,
+  Stack,
+  Typography
 } from '@mui/material';
 import { Close, Error } from '@mui/icons-material';
 import { grey } from '@mui/material/colors';
@@ -61,7 +61,7 @@ export default function OrderDialog() {
       fullWidth
       maxWidth="md"
     >
-      <Box className="bg-modal" p={3}>
+      <Box className="bg-modal" p={{ xs: 1, md: 3 }}>
         <DialogTitle
           sx={{
             py: 2,
@@ -84,9 +84,16 @@ export default function OrderDialog() {
           ><Close /></IconButton>
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center' }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <Grid item xs={12} md={7}>
-              <Stack spacing={2}>
+              <Stack spacing={{ xs: 0.5, md: 2 }}>
                 <DTextField
                   type="email"
                   name="email"
@@ -136,7 +143,7 @@ export default function OrderDialog() {
 
             <Grid item xs={12} md={5}>
               <Stack direction="row" justifyContent={{ xs: "center", md: 'end' }}>
-                <Box width="80%">
+                <Box width={{ xs: '100%', md: '80%' }}>
                   <NftCard data={nftData} />
                 </Box>
               </Stack>
