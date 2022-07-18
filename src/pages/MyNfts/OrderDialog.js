@@ -27,19 +27,23 @@ import NftCard from './NftCard';
 import api from '../../utils/api';
 import useWallet from '../../hooks/useWallet';
 import useAlertMessage from '../../hooks/useAlertMessage';
+import useLoading from '../../hooks/useLoading';
 
 const validSchema = yup.object().shape({
+  name: yup.string().required('Name is required.'),
   email: yup.string().email('Invaild email.').required('Email is required.'),
   message: yup.string().required('Message is required.')
 });
 
 export default function OrderDialog() {
   const { opened, nftData, closeOrderDialog } = useOrderDialog();
+  const { openLoading, closeLoading } = useLoading();
   const { currentAccount } = useWallet();
   const { openAlert } = useAlertMessage();
 
   const formik = useFormik({
     initialValues: {
+      name: '',
       email: '',
       message: ''
     },
@@ -52,10 +56,12 @@ export default function OrderDialog() {
   useEffect(() => {
     if (!opened) {
       formik.setValues({
+        name: '',
         email: '',
         message: ''
       });
       formik.setTouched({
+        name: false,
         email: false,
         message: false
       });
@@ -65,6 +71,7 @@ export default function OrderDialog() {
   const handleSubmit = (values) => {
     console.log('# nftData => ', nftData);
     console.log('# values => ', values);
+    openLoading();
 
     api.post('/site/saveOrder', {
       walletAddress: currentAccount,
@@ -82,12 +89,14 @@ export default function OrderDialog() {
           message: MESSAGE_ORDER_CREATE_SUCCESS
         });
       }
+      closeLoading();
       closeOrderDialog();
     }).catch(error => {
       openAlert({
         severity: ERROR,
         message: MESSAGE_FAILED
       });
+      closeLoading();
     });
   };
 
@@ -109,7 +118,7 @@ export default function OrderDialog() {
             fontWeight: 900
           }}
         >
-          Order
+          Submit Request
           <IconButton
             onClick={closeOrderDialog}
             sx={{
@@ -131,6 +140,27 @@ export default function OrderDialog() {
           >
             <Grid item xs={12} md={7}>
               <Stack spacing={{ xs: 0.5, md: 2 }}>
+              <DTextField
+                  name="name"
+                  placeholder="Enter Your Name"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  error={formik.touched.name && Boolean(formik.errors.name)}
+                  helperText={
+                    formik.touched.name && formik.errors.name ? (
+                      <Typography
+                        component="span"
+                        fontSize={14}
+                        fontWeight={700}
+                        sx={{ display: 'flex', alignItems: 'center', mx: 0 }}
+                      >
+                        <Error />&nbsp;
+                        {formik.touched.name && formik.errors.name}
+                      </Typography>) : (<></>)
+                  }
+                  fullWidth
+                />
+
                 <DTextField
                   type="email"
                   name="email"
