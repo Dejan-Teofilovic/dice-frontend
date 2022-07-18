@@ -26,7 +26,7 @@ export default function MyNfts() {
           My NFTs
         </Typography>
       </MotionDiv>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         {
           nfts.map((nftItem, index) => (
             <Grid item xs={12} sm={3} md={2} key={index}>
