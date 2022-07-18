@@ -12,12 +12,10 @@ import {
   ListItemButton,
   Stack,
   styled,
-  Toolbar,
-  Typography
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
-import { PrimaryButton, TextButton } from './styledComponents';
+import { PrimaryButton, TextButton, ToolbarWithoutPaddingX } from './styledComponents';
 import { ROUTES } from '../utils/constants';
 import useWallet from '../hooks/useWallet';
 
@@ -42,7 +40,7 @@ export default function TopNavbar() {
   return (
     <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: 3, boxShadow: 'none' }}>
       <Container maxWidth="xl">
-        <Toolbar>
+        <ToolbarWithoutPaddingX>
           <Button component={RouterLink} to="/">
             <Box component="img" src="/assets/images/logo.png" width={100} alt="logo" />
           </Button>
@@ -119,7 +117,7 @@ export default function TopNavbar() {
               </List>
             </Box>
           </CustomizedDrawer>
-        </Toolbar>
+        </ToolbarWithoutPaddingX>
       </Container>
     </AppBar>
   );

@@ -1,4 +1,4 @@
-import { Button, Dialog, TextField } from '@mui/material';
+import { Button, Dialog, TextField, Toolbar } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import { COLOR_INFO, COLOR_PRIMARY } from '../utils/constants';
@@ -57,5 +57,12 @@ export const DTextField = styled(TextField)({
 export const DDialog = styled(Dialog)({
   '& .MuiDialog-paper': {
     background: 'none'
+  }
+});
+
+export const ToolbarWithoutPaddingX = styled(Toolbar)({
+  '&.MuiToolbar-root': {
+    paddingLeft: 0,
+    paddingRight: 0
   }
 });

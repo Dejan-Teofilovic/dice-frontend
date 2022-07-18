@@ -15,12 +15,13 @@ import * as yup from 'yup';
 import { useFormik } from "formik";
 import useOrderDialog from '../../hooks/useOrderDialog';
 import { DTextField, DDialog, PrimaryButton } from '../../components/styledComponents';
-import { 
-  ERROR, 
-  FONT_PRIMARY, 
-  MESSAGE_FAILED, 
-  MESSAGE_ORDER_CREATE_SUCCESS, 
-  SUCCESS 
+import {
+  ERROR,
+  FONT_PRIMARY,
+  MESSAGE_FAILED,
+  MESSAGE_ORDER_CREATE_SUCCESS,
+  MESSAGE_ORDER_UPDATE_SUCCESS,
+  SUCCESS
 } from '../../utils/constants';
 import NftCard from './NftCard';
 import api from '../../utils/api';
@@ -65,15 +66,23 @@ export default function OrderDialog() {
     console.log('# nftData => ', nftData);
     console.log('# values => ', values);
 
-    api.post('/site/createOrder', {
+    api.post('/site/saveOrder', {
       walletAddress: currentAccount,
       ...values,
       nft: nftData
     }).then(response => {
-      openAlert({
-        severity: SUCCESS,
-        message: MESSAGE_ORDER_CREATE_SUCCESS
-      });
+      if (response.status === 200) {
+        openAlert({
+          severity: SUCCESS,
+          message: MESSAGE_ORDER_UPDATE_SUCCESS
+        });
+      } else {
+        openAlert({
+          severity: SUCCESS,
+          message: MESSAGE_ORDER_CREATE_SUCCESS
+        });
+      }
+      closeOrderDialog();
     }).catch(error => {
       openAlert({
         severity: ERROR,
