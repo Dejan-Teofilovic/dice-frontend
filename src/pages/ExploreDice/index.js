@@ -31,7 +31,7 @@ export default function ExploreDice() {
                 textAlign={{ xs: 'center', md: 'left' }}
                 color={COLOR_SECONDARY}
               >
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                Our European craftsmen use their skill and ingenuity to handcraft a unique figure that is true to the spirit of your NFT. It is made entirely of wood. Each figure is hand-painted with vibrant colors and finished with a patina coating. Since each figure is a representation of our keen interest in your NFT, only a limited number of requests will be processed at any given time.
               </Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInUp}>
@@ -70,7 +70,7 @@ export default function ExploreDice() {
                 fontSize={{ xs: 18, sm: 30, md: 42 }}
                 color="white"
                 textAlign={{ xs: 'center', md: 'left' }}
-              >Bespoke 3D Printed Figure</Typography>
+              >A Bespoke 3D Printed Figure</Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInDown}>
               <Typography
@@ -79,7 +79,7 @@ export default function ExploreDice() {
                 textAlign={{ xs: 'center', md: 'left' }}
                 color={COLOR_SECONDARY}
               >
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                The full essence of your NFT will be reproduced in a customized 3D model. Then, your model will be printed and painted in vibrant colors to offer you the most realistic portrayal possible. 
               </Typography>
             </MotionDiv>
             <MotionDiv variants={varFadeInUp}>

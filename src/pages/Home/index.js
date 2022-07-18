@@ -33,7 +33,7 @@ export default function Home() {
                 fontWeight="inherit"
                 fontStyle="italic"
                 color="#A1275D"
-              >What if</Typography>&nbsp;you can touch your PFP NFT?
+              >What if</Typography>&nbsp;you can touch your NFT Avatar?
             </Typography>
           </MotionDiv>
 
@@ -45,7 +45,7 @@ export default function Home() {
               textAlign={{ xs: 'center', md: 'left' }}
               color="#9DB7BD"
             >
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              We know you love your NFT Avatar, which is why we want to build a one-of-a-kind figure that you can admire from any angle. Show the world who truly owns your NFT and let the fascination of your unique creation begin.....
             </Typography>
           </MotionDiv>
 

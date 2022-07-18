@@ -69,8 +69,6 @@ export default function OrderDialog() {
   }, [opened]);
 
   const handleSubmit = (values) => {
-    console.log('# nftData => ', nftData);
-    console.log('# values => ', values);
     openLoading();
 
     api.post('/site/saveOrder', {

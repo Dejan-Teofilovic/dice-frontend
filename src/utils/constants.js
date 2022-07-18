@@ -22,42 +22,42 @@ export const FAQ = [
   {
     id: 1,
     question: 'Why is there a waitlist?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    id: 2,
-    question: 'How much are the figures?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    answer: "Since each figure is handcrafted, it takes time to create. You can be assured that we'll offer you a reasonable wait time, and keep you informed every step of the way."
   },
   {
     id: 3,
     question: 'Assume you accept ETH only?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    answer: 'Yes, that is correct.'
   },
   {
     id: 4,
-    question: 'What is the wait time?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    question: 'What is the wait time for a handcrafted / 3D printed figure?',
+    answer: 'Handcrafted Wooden Figures take 4-10 weeks to complete, and 3D Printed Figures take between 3-8 weeks.'
   },
   {
     id: 5,
-    question: 'Any way to shorten the wait time?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    question: 'Is there a way to reduce the wait time?',
+    answer: 'A premium feature with more customized settings and a shorter wait time will soon be available. Stay tuned!'
+  },
+  {
+    id: 2,
+    question: 'How much do the figures cost?',
+    answer: 'The Handcrafted Wooden Figure costs 1 ETH (including shipping), while the 3D Printed Figure costs 0.7 ETH.'
   },
   {
     id: 6,
-    question: 'How about delivery? Is it included?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    question: 'Is shipping and delivery included in the final cost?',
+    answer: 'The cost includes shipping and delivery via FedEx or DHL or other courier service depending on location.'
   },
   {
     id: 7,
-    question: 'Do you only handle PFP NFTs? How about my other NFTs?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    question: 'Do you only work with NFT Avatars? What about my other NFTs?',
+    answer: "We only work with NFT Avatars, unfortunately. However, we're brainstorming new ways to bring other NFTs to life."
   },
   {
     id: 8,
     question: 'Can I customize the size of my figure?',
-    answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    answer: 'Not right now. However, it will be included in our premium feature.'
   },
 ];
 

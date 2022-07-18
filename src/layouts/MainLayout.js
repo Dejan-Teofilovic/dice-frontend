@@ -12,7 +12,7 @@ export default function MainLayout() {
     <Box className="bg-main" sx={{ minHeight: '100vh' }} position="relative">
       <Stack sx={{ minHeight: 'inherit' }}>
         <TopNavbar />
-        <Box flexGrow={1}>
+        <Box flexGrow={1} pb={10}>
           <Outlet />
         </Box>
       </Stack>
