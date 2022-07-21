@@ -19,7 +19,7 @@ export default function Home() {
           <MotionDiv variants={varFadeInLeft}>
             <Typography
               mt={{ xs: 5, sm: 5, md: 5, lg: 15 }}
-              fontSize={{ xs: 28, md: 48 }}
+              fontSize={{ xs: 28, md: 36 }}
               fontFamily="sfProRounded"
               fontWeight={900}
               textAlign={{ xs: 'center', md: 'left' }}
@@ -28,7 +28,7 @@ export default function Home() {
             >
               <Typography
                 component="span"
-                fontSize={{ xs: 32, md: 54 }}
+                fontSize={{ xs: 32, md: 38 }}
                 fontFamily={FONT_IBM_PLEX}
                 fontWeight="inherit"
                 fontStyle="italic"
@@ -41,9 +41,9 @@ export default function Home() {
             <Typography
               mt={2}
               fontFamily={FONT_IBM_PLEX_SERIF}
-              fontSize={{ xs: 16, md: 18 }}
+              fontSize={16}
               textAlign={{ xs: 'center', md: 'left' }}
-              color="#9DB7BD"
+              color="white"
             >
               We know you love your NFT Avatar, which is why we want to build a one-of-a-kind figure that you can admire from any angle. Show the world who truly owns your NFT and let the fascination of your unique creation begin.....
             </Typography>
@@ -56,7 +56,7 @@ export default function Home() {
                   component="img"
                   src="/assets/images/circle_text.png"
                   mt={5}
-                  // width={{ xs: '40%', sm: '30%', md: '25%' }}
+                  sx={{ width: 140 }}
                 />
               </RouterLink>
             </Stack>
@@ -67,7 +67,7 @@ export default function Home() {
         <Grid item xs={12} md={6}>
           <MotionDiv variants={varFadeInUp}>
             <Stack mt={5} alignItems="center">
-              <Box component="img" src="/assets/images/hero.png" width={{ xs: '70%', sm: '50%', md: '70%' }} />
+              <Box component="img" src="/assets/images/hero.png" width={{ xs: '70%', sm: '50%', md: '50%' }} />
             </Stack>
           </MotionDiv>
         </Grid>

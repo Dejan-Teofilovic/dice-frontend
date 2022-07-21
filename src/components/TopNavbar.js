@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React, { useMemo, useState } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Box,
@@ -27,10 +27,17 @@ const CustomizedDrawer = styled(Drawer)`
 
 export default function TopNavbar() {
   const navigate = useNavigate();
-
+  const { pathname } = useLocation();
   const { connectWallet, walletConnected, disconnectWallet } = useWallet();
 
   const [drawerOpened, setDrawerOpened] = useState(false);
+
+  const valueOfPy = useMemo(() => {
+    if (pathname === '/') {
+      return 8;
+    }
+    return 3;
+  }, [pathname]);
 
   const handleDisconnect = () => {
     disconnectWallet();
@@ -38,7 +45,7 @@ export default function TopNavbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: 3, boxShadow: 'none' }}>
+    <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: valueOfPy, boxShadow: 'none' }}>
       <Container maxWidth="xl">
         <ToolbarWithoutPaddingX>
           <Button component={RouterLink} to="/">

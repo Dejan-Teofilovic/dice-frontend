@@ -2,7 +2,6 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import { Box, IconButton, Stack } from '@mui/material';
 import { Twitter } from '@mui/icons-material';
-import { grey } from '@mui/material/colors';
 import TopNavbar from '../components/TopNavbar';
 import Loading from '../components/Loading';
 import AlertMessage from '../components/AlertMessage';
@@ -18,7 +17,7 @@ export default function MainLayout() {
       </Stack>
       <IconButton
         sx={{
-          color: { xs: grey[800], md: grey[900] },
+          color: 'white',
           position: 'fixed',
           bottom: 32,
           left: { xs: 32, md: 64 },
