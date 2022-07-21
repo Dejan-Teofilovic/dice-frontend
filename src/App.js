@@ -7,27 +7,32 @@ import { WalletProvider } from './contexts/WalletContext';
 import { OrderDialogProvider } from './contexts/OrderDialogContext';
 import { LoadingProvider } from './contexts/LoadingContext';
 import Routes from './Routes';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 const getLibrary = (provider) => {
   const library = new Web3Provider(provider, "any");
   return library;
 };
 
+const theme = createTheme({});
+
 function App() {
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <LoadingProvider>
-        <AlertMessageProvider>
-          <WalletProvider>
-            <OrderDialogProvider>
-              <Router>
-                <Routes />
-              </Router>
-            </OrderDialogProvider>
-          </WalletProvider>
-        </AlertMessageProvider>
-      </LoadingProvider>
-    </Web3ReactProvider>
+    <ThemeProvider theme={theme}>
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <LoadingProvider>
+          <AlertMessageProvider>
+            <WalletProvider>
+              <OrderDialogProvider>
+                <Router>
+                  <Routes />
+                </Router>
+              </OrderDialogProvider>
+            </WalletProvider>
+          </AlertMessageProvider>
+        </LoadingProvider>
+      </Web3ReactProvider>
+    </ThemeProvider>
   );
 }
 

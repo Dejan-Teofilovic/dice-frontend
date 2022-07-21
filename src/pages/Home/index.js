@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Stack, Typography } from '@mui/material';
+import { Box, Container, Grid, IconButton, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import MotionDiv from '../../components/MotionDiv';
 import {
@@ -10,6 +10,7 @@ import {
   varFadeInRight,
   varFadeInUp
 } from '../../utils/constants';
+import { Twitter } from '@mui/icons-material';
 
 export default function Home() {
   return (
@@ -72,6 +73,17 @@ export default function Home() {
           </MotionDiv>
         </Grid>
       </Grid>
+      <IconButton
+        sx={{
+          color: 'white',
+          position: 'fixed',
+          bottom: 32,
+          left: { xs: 32, md: 64 },
+          zIndex: 100
+        }}
+      >
+        <Twitter sx={{ fontSize: { xs: 32, md: 48 } }} />
+      </IconButton>
     </Container>
   );
 }

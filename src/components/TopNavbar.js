@@ -35,6 +35,8 @@ export default function TopNavbar() {
   const valueOfPy = useMemo(() => {
     if (pathname === '/') {
       return 8;
+    } else if(pathname === '/explore-dice') {
+      return 5;
     }
     return 3;
   }, [pathname]);
