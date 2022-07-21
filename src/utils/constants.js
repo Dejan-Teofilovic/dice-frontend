@@ -59,6 +59,11 @@ export const FAQ = [
     question: 'Can I customize the size of my figure?',
     answer: 'Not right now. However, it will be included in our premium feature.'
   },
+  {
+    id: 9,
+    question: 'What if I have more questions?',
+    answer: 'Email us at dice@dice-nft.com'
+  }
 ];
 
 // Chain infos
