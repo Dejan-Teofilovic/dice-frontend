@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Container, Grid, IconButton, Link, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import MotionDiv from '../../components/MotionDiv';
 import {
@@ -81,6 +81,9 @@ export default function Home() {
           left: { xs: 32, md: 64 },
           zIndex: 100
         }}
+        component={Link}
+        target="_blank"
+        href="https://twitter.com/dice__NFT/"
       >
         <Twitter sx={{ fontSize: { xs: 32, md: 48 } }} />
       </IconButton>

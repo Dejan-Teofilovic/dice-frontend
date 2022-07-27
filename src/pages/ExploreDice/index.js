@@ -114,7 +114,7 @@ export default function ExploreDice() {
 
       <MHidden width="smDown">
         <Stack direction="row" justifyContent="center">
-          <Stack width="90%" justifyContent="center" spacing={3}>
+          <Stack width="80%" justifyContent="center" spacing={3}>
             {/* Titles */}
             <Box>
               <Grid container spacing={20}>
@@ -122,7 +122,7 @@ export default function ExploreDice() {
                   <MotionDiv variants={varFadeInUp}>
                     <Typography
                       fontFamily={FONT_PRIMARY}
-                      fontSize={{ xs: 18, sm: 30, md: 36 }}
+                      fontSize={{ xs: 18, sm: 26, md: 32 }}
                       color="white"
                       textAlign={{ xs: 'center', md: 'left' }}
                     >Hand Crafted Wooden Figure</Typography>
@@ -133,7 +133,7 @@ export default function ExploreDice() {
                   <MotionDiv variants={varFadeInUp}>
                     <Typography
                       fontFamily={FONT_PRIMARY}
-                      fontSize={{ xs: 18, sm: 30, md: 36 }}
+                      fontSize={{ xs: 18, sm: 26, md: 32 }}
                       color="white"
                       textAlign={{ xs: 'center', md: 'left' }}
                     >A Bespoke 3D Printed Figure</Typography>
@@ -149,7 +149,7 @@ export default function ExploreDice() {
                   <MotionDiv variants={varFadeInDown}>
                     <Typography
                       fontFamily={FONT_IBM_PLEX_SERIF}
-                      fontSize={{ xs: 16, md: 18 }}
+                      fontSize={{ xs: 16, md: 16 }}
                       textAlign={{ xs: 'center', md: 'left' }}
                       color="white"
                     >
@@ -162,7 +162,7 @@ export default function ExploreDice() {
                   <MotionDiv variants={varFadeInDown}>
                     <Typography
                       fontFamily={FONT_IBM_PLEX_SERIF}
-                      fontSize={{ xs: 16, md: 18 }}
+                      fontSize={{ xs: 16, md: 16 }}
                       textAlign={{ xs: 'center', md: 'left' }}
                       color="white"
                     >
@@ -208,7 +208,7 @@ export default function ExploreDice() {
                     sx={{
                       color: 'white',
                       px: 3,
-                      fontSize: { xs: '1rem', md: '1.5rem' },
+                      fontSize: { xs: 12, md: 20 },
                       fontWeight: 900
                     }}
                   >
@@ -220,7 +220,7 @@ export default function ExploreDice() {
                     sx={{
                       color: 'white',
                       px: 3,
-                      fontSize: { xs: '1rem', md: '1.5rem' },
+                      fontSize: { xs: 12, md: 20 },
                       fontWeight: 900
                     }}
                   >
