@@ -12,7 +12,7 @@ import {
 
 export default function ExploreDice() {
   return (
-    <Container maxWidth="xl" sx={{ pb: 3, pt: 6 }}>
+    <Container maxWidth="lg" sx={{ pb: 3, pt: 6 }}>
       <MHidden width="smUp">
         <Grid container mt={3}>
           <Grid item xs={12} md={6}>
@@ -114,7 +114,7 @@ export default function ExploreDice() {
 
       <MHidden width="smDown">
         <Stack direction="row" justifyContent="center">
-          <Stack width="80%" justifyContent="center" spacing={3}>
+          <Stack width="90%" justifyContent="center" spacing={3}>
             {/* Titles */}
             <Box>
               <Grid container spacing={20}>

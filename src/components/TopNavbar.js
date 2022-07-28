@@ -48,7 +48,7 @@ export default function TopNavbar() {
 
   return (
     <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: valueOfPy, boxShadow: 'none' }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <ToolbarWithoutPaddingX>
           <Button component={RouterLink} to="/">
             <Box component="img" src="/assets/images/logo.png" width={100} alt="logo" />

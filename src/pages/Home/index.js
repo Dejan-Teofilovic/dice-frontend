@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Grid, IconButton, Link, Stack, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { Twitter } from '@mui/icons-material';
 import MotionDiv from '../../components/MotionDiv';
 import {
   FONT_IBM_PLEX,
@@ -10,11 +11,10 @@ import {
   varFadeInRight,
   varFadeInUp
 } from '../../utils/constants';
-import { Twitter } from '@mui/icons-material';
 
 export default function Home() {
   return (
-    <Container maxWidth="xl" sx={{ pb: 3 }}>
+    <Container maxWidth="lg" sx={{ pb: 3 }}>
       <Grid container flexDirection={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 0, sm: 14, md: 0 }}>
         <Grid item xs={12} md={6}>
           <MotionDiv variants={varFadeInLeft}>
@@ -67,7 +67,7 @@ export default function Home() {
 
         <Grid item xs={12} md={6}>
           <MotionDiv variants={varFadeInUp}>
-            <Stack mt={5} alignItems="center">
+            <Stack mt={10} alignItems="center">
               <Box component="img" src="/assets/images/hero.png" width={{ xs: '70%', sm: '50%', md: '50%' }} />
             </Stack>
           </MotionDiv>
