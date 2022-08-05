@@ -67,21 +67,21 @@ export const FAQ = [
 ];
 
 // Chain infos
-export const CHAIN_ID = 4;
-export const CHAIN_NAME = 'Rinkeby Test Network';
-export const RPC_URLS = ['https://rinkeby.infura.io/v3/'];
-export const BLOCK_EXPLORER_URLS = ['https://rinkeby.etherscan.io'];
-export const NATIVE_CURRENCY_NAME = 'ETH';
-export const NATIVE_CURRENCY_SYMBOL = 'ETH';
-export const DECIMALS = 18;
-
-// export const CHAIN_ID = 1;
-// export const CHAIN_NAME = 'Ethereum Mainnet';
-// export const RPC_URLS = ['https://mainnet.infura.io/v3/'];
-// export const BLOCK_EXPLORER_URLS = ['https://etherscan.io'];
+// export const CHAIN_ID = 4;
+// export const CHAIN_NAME = 'Rinkeby Test Network';
+// export const RPC_URLS = ['https://rinkeby.infura.io/v3/'];
+// export const BLOCK_EXPLORER_URLS = ['https://rinkeby.etherscan.io'];
 // export const NATIVE_CURRENCY_NAME = 'ETH';
 // export const NATIVE_CURRENCY_SYMBOL = 'ETH';
 // export const DECIMALS = 18;
+
+export const CHAIN_ID = 1;
+export const CHAIN_NAME = 'Ethereum Mainnet';
+export const RPC_URLS = ['https://mainnet.infura.io/v3/'];
+export const BLOCK_EXPLORER_URLS = ['https://etherscan.io'];
+export const NATIVE_CURRENCY_NAME = 'ETH';
+export const NATIVE_CURRENCY_SYMBOL = 'ETH';
+export const DECIMALS = 18;
 
 export const NO_ETHEREUM_OBJECT = /No Ethereum provider was found on window.ethereum/;
 
